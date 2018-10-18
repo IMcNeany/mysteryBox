@@ -35,12 +35,13 @@ public class CameraController : MonoBehaviour {
 
     public void UpdateCameraPosition()
     {
-        Vector3 camera_position = transform.position;
+        Vector3 camera_position = GetTargetPosition();
         if (lerp_movement)
         {
             camera_position = Vector3.Lerp(camera_position, GetTargetPosition(), position_speed * Time.deltaTime);
-            camera_position.z = -10;
         }
+
+        camera_position.z = -10;
         transform.position = camera_position;
     }
 
